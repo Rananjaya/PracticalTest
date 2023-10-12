@@ -4,7 +4,7 @@ import COLORS from '../../consts/colors';
 import LoginInput from '../../components/textinput';
 import LoginButton from '../../components/LoginButton';
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <SafeAreaView style={styles.main}>
       <View style={styles.topText}>
@@ -18,7 +18,9 @@ const Login = () => {
          <LoginInput secureText={true} placeHolderText={'Password'} />
       </View>
       <View style={styles.buttonWrapper}>
-        <LoginButton/>
+        <LoginButton onpress={()=>{
+           navigation.navigate('Tabs');
+        }}/>
       </View>
     </SafeAreaView>
   );
