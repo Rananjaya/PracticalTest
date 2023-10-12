@@ -1,17 +1,16 @@
 import { StyleSheet, Text, View,TextInput } from 'react-native'
-import React,{useState} from 'react'
+import React from 'react'
 import COLORS from '../consts/colors'
 
-const LoginInput = ({secureText,placeHolderText,userName}) => {
-  
+const PasswordTextInput = ({secureText,placeHolderText,Password}) => {
   return (
     <View style={styles.textinputMainStyle}>
-       <TextInput onChangeText={userName} secureTextEntry={secureText === true ? true : false} placeholder={placeHolderText}/>
+       <TextInput secureTextEntry={true} placeholder={placeHolderText} onChangeText={Password}/>
     </View>
   )
 }
 
-export default LoginInput
+export default PasswordTextInput
 
 const styles = StyleSheet.create({
     textinputMainStyle : {
