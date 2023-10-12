@@ -1,0 +1,26 @@
+const COLORS = {
+	White: '#fff',
+	tab: 'rgba(0, 97, 53, 1)',
+	Dark: '#070033',
+	Secondary: '#8080FF',
+	Black: '#000',
+	gray: 'rgb(158,173,186)3',
+	Grey1: 'rgba(82, 82, 82, 1)',
+	Grey2: 'rgba(134, 134, 134, 1)',
+	Grey3: 'rgba(176, 176, 176, 1)',
+	Grey4: 'rgba(233, 233, 233, 1)',
+	LogoTextColor: 'rgba(47, 35, 79, 1)',
+	Primary: '#3D3DBD',
+	light: '#B3AAFF',
+	lighter: '#E9F3FF',
+	ternaryColor: '#FDFF05',
+	forthColor: '#FF6619',
+	Red: '#e71616',
+	Danger: '#D33030',
+	DangerLight: '#FFE1DE',
+	TabText: '#253A62',
+	green: '#21a067',
+	BackdropColor: 'rgba(0, 0, 0, 0.3)',
+	ButtonColor: 'rgb(101,88,245)'
+};
+export default COLORS;
