@@ -35,26 +35,6 @@ const Cart = ({navigation}) => {
     console.log('sssss', cart);
   }, []);
 
-//   const DeleteByID = useCallback(async (id) => {
-//     console.log("allIDSSS",id)
-//     const updatedData = cart.filter(item => item.id !== id);
-   
-//  try{
-//   await AsyncStorage.setItem('Cart2', JSON.stringify(updatedData));
-//   console.log('filter_data', updatedData); 
-//   setCart(updatedData);
-//  }catch(error){
-// console.log("deleteError",error)
-//  }
-   
-//     // return filteredData;
-//     // try {
-//     //   await AsyncStorage.setItem('Cart2', JSON.stringify(filteredData));
-//     // } catch (err) {
-//     //   console.log(err, 'error delete');
-//     // }
-   
-//   }, []);
 const deleteItem = async (id) => {
   try {
     const updatedData = cart.filter(item => item.id !== id);
