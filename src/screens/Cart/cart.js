@@ -1,67 +1,92 @@
-import { SafeAreaView, StyleSheet, Text, View,ScrollView,FlatList } from 'react-native'
-import React, { useEffect,useCallback,useState } from 'react'
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+} from 'react-native';
+import React, {useEffect, useCallback, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useIsFocused, useNavigation } from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import HeaderWithDirections from '../../components/headerWithDirections';
 import CartList from '../../components/cartList';
-import COLORS from '../../consts/colors'
+import COLORS from '../../consts/colors';
 
 const Cart = ({navigation}) => {
-  const [cart, setCart] = useState(['']);
+  const [cart, setCart] = useState([undefined]);
   const isFocused = useIsFocused();
-  useEffect(()=>{
-    if(isFocused){
+  useEffect(() => {
+    if (isFocused) {
       getCart();
     }
-    
-  },[isFocused])
+  }, [isFocused]);
 
-  const getCart = useCallback(async() => {
+  const getCart = useCallback(async () => {
     try {
       var cart_items = await AsyncStorage.getItem('Cart2');
       let newcart = JSON.parse(cart_items);
       let newdata = JSON.stringify(cart_items);
       setCart(newcart);
-      console.log("getCart",cart_items)
-    } catch(error) {
-         console.log("ErrorGetDataFromLocal",error)
+      console.log('getCart', cart_items);
+    } catch (error) {
+      console.log('ErrorGetDataFromLocal', error);
     }
-  
+  }, []);
+
+  const DeleteByID = useCallback(async (deleteID) => {
+    const filteredData = cart.filter(item => item.id !== deleteID);
+    try {
+      await AsyncStorage.setItem('Cart2', JSON.stringify(filteredData));
+    } catch (err) {
+      console.log(err, "error delete");
+    }
+    console.log('filter_data', filteredData);
+    setCart(filteredData);
   }, []);
   return (
-  <SafeAreaView style={styles.mainWrapper}>
+    <SafeAreaView style={styles.mainWrapper}>
       <View>
-          <HeaderWithDirections headerText={"Cart"} onpress={()=>{
-              navigation.goBack();
-          }}/>
+        <HeaderWithDirections
+          headerText={'Cart'}
+          onpress={() => {
+            navigation.goBack();
+          }}
+        />
       </View>
       <ScrollView>
-      <View style={styles.cartListStyle}>
-      <FlatList
-        horizontal={false}
-        data={cart}
-        renderItem={({ item }) => (
-           <CartList imageURL={item.imageData} title={item.title} quntity={item.quntitiy} price={item.price}/>
-        )}
-        />
-        
-      </View>
+        <View style={styles.cartListStyle}>
+          <FlatList
+            horizontal={false}
+            data={cart}
+            renderItem={({item}) => (
+              <CartList
+                imageURL={item.imageData}
+                title={item.title}
+                quntity={item.quntitiy}
+                price={item.price}
+                onpressDelete={()=>{
+                  DeleteByID(item.id);
+                }}
+              />
+            )}
+          />
+        </View>
       </ScrollView>
-    
-  </SafeAreaView>
-  )
-}
+    </SafeAreaView>
+  );
+};
 
-export default Cart
+export default Cart;
 
 const styles = StyleSheet.create({
-  mainWrapper : {
-    flex :1,
-    backgroundColor : COLORS.White
+  mainWrapper: {
+    flex: 1,
+    backgroundColor: COLORS.White,
   },
-  cartListStyle : {
-    justifyContent : "center",
-    alignItems : "center",
-    marginTop : 10
-  }
-})
+  cartListStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+});

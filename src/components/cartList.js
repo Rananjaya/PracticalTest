@@ -2,12 +2,12 @@ import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import React from 'react';
 import COLORS from '../consts/colors';
 
-const cartList = ({title, quntity, price, imageURL}) => {
+const cartList = ({title, quntity, price, imageURL,onpressDelete}) => {
   return (
     <TouchableOpacity>
       <View style={styles.listWrapper}>
         <View style={styles.MainRow}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', }}>
             <View>
               <Image
                 style={styles.tumb}
@@ -26,15 +26,16 @@ const cartList = ({title, quntity, price, imageURL}) => {
                   <Text>{quntity}</Text>
                 </View>
                 <View style={{marginLeft: 10, marginTop: 10}}>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={onpressDelete}>
                     <Text style={styles.textStyle}>Delete</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
           </View>
-          <View>
-            <Text>{price}</Text>
+          <View style={{flexDirection : "row", marginLeft :80, justifyContent : "center", alignItems : "center"}}>
+            <Text>$</Text>
+            <Text style={{fontWeight :"bold"}}>{price}</Text>
           </View>
         </View>
       </View>
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
   },
   MainRow: {
     flexDirection: 'row',
+    // flex : 0.5
     //  justifyContent : "center" ,
     //alignItems :"center"
   },
