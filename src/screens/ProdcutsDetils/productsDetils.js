@@ -5,6 +5,7 @@ import {
   View,
   FlatList,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import HeaderWithDirections from '../../components/headerWithDirections';
@@ -13,8 +14,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getAllProductsbyId} from '../../redux/feature/ProductByIdSlice';
 import {Rating, AirbnbRating} from 'react-native-ratings';
 import Swiper from '../../components/swiper';
+import Slider from "react-native-slider";
+import AddToCartButton from '../../components/addToCartButton';
 
 const ProductsDetils = ({navigation, route}) => {
+    const [fullValue,setValue] = useState(1);
   const dispatch = useDispatch();
   const {data, isSuccess, loading, message} = useSelector(
     state => state.getprobyid,
@@ -72,7 +76,23 @@ const ProductsDetils = ({navigation, route}) => {
         </View>
       </View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <Text  style={styles.textStyle}>Quntity</Text>
+        <Text style={styles.textStyle}>Quntity</Text>
+      </View>
+      <View style={{padding :50}}>
+      <Slider
+        
+         minimumValue={0}
+         maximumValue={data.stock}
+         step={1}
+          onValueChange={(arg)=>{
+            setValue(arg)
+          
+          }}
+        />
+        <Text>{fullValue}</Text>
+      </View>
+      <View style={{justifyContent : "center", alignItems : "center"}}>
+        <AddToCartButton/>
       </View>
     </SafeAreaView>
   );
