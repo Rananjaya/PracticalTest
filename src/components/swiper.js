@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Swiper from 'react-native-swiper';
+
 const window = Dimensions.get('window');
 
 const SwiperSlider = ({dataa}) => {
