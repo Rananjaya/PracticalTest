@@ -6,7 +6,7 @@ export const signupUser = createAsyncThunk(
   async (credentials, {rejectWithValue}) => {
     const {username, password} = credentials;
 
-    console.log('idpajdsjdca', username, password);
+ 
 
     try {
       const {data} = await axios.post(`https://dummyjson.com/auth/login`, {
