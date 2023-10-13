@@ -14,7 +14,7 @@ import ProductCards from '../../components/ProductCards';
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllProducts } from '../../redux/feature/ProductSlice';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const dispatch = useDispatch();
   // const {data,isSuccess,loading,message} = useSelector(state => state.products);
  const {data} = useSelector(state => state.product)
@@ -39,7 +39,10 @@ const Home = () => {
         data={data}
         renderItem={({ item }) => (
           
-            <ProductCards data={item} />
+            <ProductCards onpress={()=>{
+              console.log("press")
+              navigation.navigate('ProductsDetils');
+            }} data={item} />
           
         )}
         />
