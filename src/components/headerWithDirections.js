@@ -3,7 +3,7 @@ import React from 'react';
 import COLORS from '../consts/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const HeaderWithDirections = ({onpress}) => {
+const HeaderWithDirections = ({onpress,headerText}) => {
   return (
     <View style={styles.headerWrpapper}>
       <View>
@@ -11,7 +11,8 @@ const HeaderWithDirections = ({onpress}) => {
           <Icon name="arrow-left" size={30} />
         </TouchableOpacity>
       </View>
-      {/* <Text style={styles.headerText}>{headerText}</Text> */}
+      <Text style={styles.headerText}>{headerText}</Text>
+      <Text style={styles.headerText}></Text>
     </View>
   );
 };

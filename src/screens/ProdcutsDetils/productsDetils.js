@@ -38,6 +38,7 @@ const ProductsDetils = ({navigation, route}) => {
       title: data.title,
       price: data.price,
       quntitiy: fullValue,
+      imageData: data.thumbnail
     };
     let existingProducts = await AsyncStorage.getItem('Cart2');
     let newProduct = JSON.parse(existingProducts);
