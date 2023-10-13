@@ -59,6 +59,7 @@ const Login = ({navigation}) => {
       </View>
       <View style={styles.buttonWrapper}>
         <LoginButton
+         ButtonText={"Chekcout"}
           onpress={() => {
             LoginUser();
             //

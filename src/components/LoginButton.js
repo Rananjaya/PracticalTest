@@ -2,11 +2,15 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import COLORS from '../consts/colors';
 
-const LoginButton = ({ButtonText,onpress}) => {
+const LoginButton = ({ButtonText,onpress,count,countValue}) => {
   return (
     <TouchableOpacity onPress={onpress}>
       <View style={styles.ButtonWrapper}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.buttonText}>{ButtonText}</Text>
+        {countValue == true &&
+          <Text style={styles.buttonText}> ({count})</Text>
+        }
+        
       </View>
     </TouchableOpacity>
   );

@@ -26,7 +26,7 @@ const cartList = ({title, quntity, price, imageURL,onpressDelete}) => {
                   <Text>{quntity}</Text>
                 </View>
                 <View style={{marginLeft: 10, marginTop: 10}}>
-                  <TouchableOpacity onPress={onpressDelete}>
+                  <TouchableOpacity disabled={true} onPress={onpressDelete}>
                     <Text style={styles.textStyle}>Delete</Text>
                   </TouchableOpacity>
                 </View>

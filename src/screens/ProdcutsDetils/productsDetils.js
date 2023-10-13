@@ -37,7 +37,7 @@ const ProductsDetils = ({navigation, route}) => {
     var items = {
       id: data.id,
       title: data.title,
-      price: data.price,
+      price: data.price * fullValue,
       quntitiy: fullValue,
       imageData: data.thumbnail
     };

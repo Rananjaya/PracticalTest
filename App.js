@@ -7,6 +7,7 @@ import Home from './src/screens/Home/home';
 import Cart from './src/screens/Cart/cart';
 import Profile from './src/screens/Profile/profile';
 import Login from './src/screens/Login/login';
+import Checkout from './src/screens/Checkout/checkout';
 import ProductDetils from './src/screens/ProdcutsDetils/productsDetils';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Provider } from 'react-redux';
@@ -50,6 +51,7 @@ const App = () => {
         <Stack.Screen name="Tabs" component={CreateBottomTab} />
         {/* <Stack.Screen name="Login" component={Login} /> */}
         <Stack.Screen name="ProductsDetils" component={ProductDetils} />
+        <Stack.Screen name="Checkout" component={Checkout} />
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>
