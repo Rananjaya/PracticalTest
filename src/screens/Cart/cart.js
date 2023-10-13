@@ -92,7 +92,9 @@ const deleteItem = async (id) => {
               countValue={true}
               count={cart === null ? 0 : cart.length}
               onpress={() => {
-                navigation.navigate('Checkout');
+                navigation.navigate('Checkout',{
+                  cart : cart
+                });
               }}
               ButtonText={'Chekcout'}
             />
