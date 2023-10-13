@@ -1,9 +1,17 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import HeaderWithDirections from '../../components/headerWithDirections'
 import COLORS from '../../consts/colors'
+import {useDispatch, useSelector} from 'react-redux';
+import { getAllProductsbyId } from '../../redux/feature/ProductByIdSlice';
 
-const ProductsDetils = ({navigation}) => {
+const ProductsDetils = ({navigation,route}) => {
+    const dispatch = useDispatch();
+    const {Product_id} = route.params;
+    console.log("dfsdfdfsd",Product_id)
+    useEffect(()=>{
+        dispatch(getAllProductsbyId({id: Product_id}));
+    },[Product_id])
   return (
    <SafeAreaView style={styles.mainView}>
     <View>

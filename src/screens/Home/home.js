@@ -16,13 +16,11 @@ import { getAllProducts } from '../../redux/feature/ProductSlice';
 
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
-  // const {data,isSuccess,loading,message} = useSelector(state => state.products);
- const {data} = useSelector(state => state.product)
+  const {data} = useSelector(state => state.product)
   console.log("alllllll",data)
 
  useEffect(()=>{
-  //   dispatch(signupUser({username: userName, password: password}));
-  dispatch(getAllProducts());
+   dispatch(getAllProducts());
  },[])
 
   return (
@@ -41,7 +39,10 @@ const Home = ({navigation}) => {
           
             <ProductCards onpress={()=>{
               console.log("press")
-              navigation.navigate('ProductsDetils');
+              
+              navigation.navigate('ProductsDetils',{
+                Product_id: item.id
+              });
             }} data={item} />
           
         )}

@@ -7,7 +7,7 @@ const productCards = ({data, onpress}) => {
     <TouchableOpacity onPress={onpress}>
       <View style={styles.cards}>
         <View style={styles.conHeadder}>
-          <Text style={styles.headerMainTextStyle}>{data.brand}</Text>
+          <Text style={styles.headerMainTextStyle}>{data.title}</Text>
         </View>
         <View style={{marginTop: 10}}>
           <Text>{data.description}</Text>
