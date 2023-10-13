@@ -6,7 +6,7 @@ export const getAllProducts = createAsyncThunk(
   async (arg, {rejectWithValue}) => {
    try {
       const {data} = await axios.get(`https://dummyjson.com/products`);
-    //   console.log("ProdcutsDataaa",data.products)
+
       return data.products;
     } catch (err) {
       rejectWithValue(err);
@@ -29,7 +29,7 @@ export const productSlice = createSlice({
       state.loading = true;
     },
     [getAllProducts.fulfilled]: (state, {payload}) => {
-        console.log("whatthehell",payload)
+       
       state.loading = false;
       state.data = payload;
       state.isSuccess = true;

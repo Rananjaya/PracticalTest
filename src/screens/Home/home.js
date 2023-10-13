@@ -34,7 +34,16 @@ const Home = () => {
       <ScrollView>
         {/* List */}
         <View style={styles.cardWrapper}>
-          <ProductCards />
+        <FlatList
+        horizontal={false}
+        data={data}
+        renderItem={({ item }) => (
+          
+            <ProductCards data={item} />
+          
+        )}
+        />
+          {/* <ProductCards /> */}
         </View>
       </ScrollView>
     </SafeAreaView>
