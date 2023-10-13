@@ -14,7 +14,7 @@ import CartList from '../../components/cartList';
 import COLORS from '../../consts/colors';
 
 const Cart = ({navigation}) => {
-  const [cart, setCart] = useState([undefined]);
+  const [cart, setCart] = useState(['']);
   const isFocused = useIsFocused();
   useEffect(() => {
     if (isFocused) {

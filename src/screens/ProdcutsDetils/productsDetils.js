@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native';
 import React, {useEffect, useState, useCallback} from 'react';
 import HeaderWithDirections from '../../components/headerWithDirections';
@@ -40,12 +41,14 @@ const ProductsDetils = ({navigation, route}) => {
       quntitiy: fullValue,
       imageData: data.thumbnail
     };
+  
     let existingProducts = await AsyncStorage.getItem('Cart2');
     let newProduct = JSON.parse(existingProducts);
     if (!newProduct) {
       newProduct = [];
     }
     newProduct.push(items);
+    console.log("newCart",newProduct)
     try {
       await AsyncStorage.setItem('Cart2', JSON.stringify(newProduct));
       Alert.alert('Alert', 'Product add to cart', [
@@ -81,7 +84,8 @@ const ProductsDetils = ({navigation, route}) => {
           renderItem={({item}) => <Swiper dataa={item} />}
         />
       </View>
-
+   {/*  */}
+    <ScrollView>
       <View style={{marginLeft: 20, marginTop: 10}}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>{data.title}</Text>
       </View>
@@ -120,7 +124,7 @@ const ProductsDetils = ({navigation, route}) => {
         />
         <Text>{fullValue}</Text>
       </View>
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{justifyContent: 'center', alignItems: 'center',marginBottom :10}}>
         <AddToCartButton
           onpress={() => {
             AddToCart();
@@ -128,6 +132,8 @@ const ProductsDetils = ({navigation, route}) => {
           }}
         />
       </View>
+      </ScrollView>
+      {/*  */}
     </SafeAreaView>
   );
 };
