@@ -29,13 +29,13 @@ export const CreateBottomTab = () => {
      options={{
       tabBarLabel: 'Cart',
       tabBarIcon: ({ color, size }) => (
-        <Icon name="home"  size={30} />
+        <Icon name="cart-arrow-right"  size={30} />
       ),
     }} />
     <Tab.Screen name="Profile" component={Profile}  options={{
       tabBarLabel: 'Profile',
       tabBarIcon: ({ color, size }) => (
-        <Icon name="home"  size={30} />
+        <Icon name="account"  size={30} />
       ),
     }} />
   </Tab.Navigator>
