@@ -21,6 +21,7 @@ const COLORS = {
 	TabText: '#253A62',
 	green: '#21a067',
 	BackdropColor: 'rgba(0, 0, 0, 0.3)',
-	ButtonColor: 'rgb(101,88,245)'
+	ButtonColor: 'rgb(101,88,245)',
+	headerFontColor: 'rgb(73,86,96)'
 };
 export default COLORS;
