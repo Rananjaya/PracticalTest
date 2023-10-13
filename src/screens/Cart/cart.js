@@ -35,16 +35,35 @@ const Cart = ({navigation}) => {
     console.log('sssss', cart);
   }, []);
 
-  const DeleteByID = useCallback(async deleteID => {
-    const filteredData = cart.filter(item => item.id !== deleteID);
-    try {
-      await AsyncStorage.setItem('Cart2', JSON.stringify(filteredData));
-    } catch (err) {
-      console.log(err, 'error delete');
-    }
-    console.log('filter_data', filteredData);
-    setCart(filteredData);
-  }, []);
+//   const DeleteByID = useCallback(async (id) => {
+//     console.log("allIDSSS",id)
+//     const updatedData = cart.filter(item => item.id !== id);
+   
+//  try{
+//   await AsyncStorage.setItem('Cart2', JSON.stringify(updatedData));
+//   console.log('filter_data', updatedData); 
+//   setCart(updatedData);
+//  }catch(error){
+// console.log("deleteError",error)
+//  }
+   
+//     // return filteredData;
+//     // try {
+//     //   await AsyncStorage.setItem('Cart2', JSON.stringify(filteredData));
+//     // } catch (err) {
+//     //   console.log(err, 'error delete');
+//     // }
+   
+//   }, []);
+const deleteItem = async (id) => {
+  try {
+    const updatedData = cart.filter(item => item.id !== id);
+    await AsyncStorage.setItem('Cart2', JSON.stringify(updatedData));
+    setCart(updatedData);
+  } catch (error) {
+    console.log('deleteError', error);
+  }
+};
   return (
     <SafeAreaView style={styles.mainWrapper}>
       <View>
@@ -68,7 +87,7 @@ const Cart = ({navigation}) => {
                   quntity={item.quntitiy}
                   price={item.price}
                   onpressDelete={() => {
-                    DeleteByID(item.id);
+                    deleteItem(item.id);
                   }}
                 />
               )}
@@ -87,11 +106,18 @@ const Cart = ({navigation}) => {
             </Text>
           </View>
         )}
-        <View style={styles.buttonWrapper}>
-           <LoginButton countValue={true} count={cart.length} onpress={()=>{
-              navigation.navigate("Checkout")
-           }} ButtonText={"Chekcout"}/>
-        </View>
+        {cart !== null &&
+          <View style={styles.buttonWrapper}>
+            <LoginButton
+              countValue={true}
+              count={cart === null ? 0 : cart.length}
+              onpress={() => {
+                navigation.navigate('Checkout');
+              }}
+              ButtonText={'Chekcout'}
+            />
+          </View>
+        }
       </ScrollView>
     </SafeAreaView>
   );
@@ -109,9 +135,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
   },
-  buttonWrapper : {
-    justifyContent : "center",
-    alignItems: "center",
-    marginTop : 10
-  }
+  buttonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
 });

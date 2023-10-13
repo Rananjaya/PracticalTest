@@ -26,7 +26,7 @@ const cartList = ({title, quntity, price, imageURL,onpressDelete}) => {
                   <Text>{quntity}</Text>
                 </View>
                 <View style={{marginLeft: 10, marginTop: 10}}>
-                  <TouchableOpacity disabled={true} onPress={onpressDelete}>
+                  <TouchableOpacity  onPress={onpressDelete}>
                     <Text style={styles.textStyle}>Delete</Text>
                   </TouchableOpacity>
                 </View>
@@ -48,7 +48,7 @@ export default cartList;
 const styles = StyleSheet.create({
   listWrapper: {
     // height: 100,
-    width: 350,
+    width: 370,
     backgroundColor: COLORS.White,
     borderRadius: 10,
     elevation: 10,

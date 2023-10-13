@@ -19,6 +19,7 @@ import Swiper from '../../components/swiper';
 import Slider from 'react-native-slider';
 import AddToCartButton from '../../components/addToCartButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import uuid from 'react-native-uuid';
 
 const ProductsDetils = ({navigation, route}) => {
   const [fullValue, setValue] = useState(1);
@@ -26,6 +27,7 @@ const ProductsDetils = ({navigation, route}) => {
   const {data, isSuccess, loading, message} = useSelector(
     state => state.getprobyid,
   );
+  const uniqID = uuid.v4().toString();
   const {Product_id} = route.params;
   console.log('whatsisacctualdata', data);
 
@@ -35,7 +37,7 @@ const ProductsDetils = ({navigation, route}) => {
 
   const AddToCart = useCallback(async () => {
     var items = {
-      id: data.id,
+      id: uniqID,
       title: data.title,
       price: data.price * fullValue,
       quntitiy: fullValue,
@@ -96,7 +98,7 @@ const ProductsDetils = ({navigation, route}) => {
       </View>
       <View style={styles.bottomRow}>
         <Text style={styles.textStyle}>Price</Text>
-        <Text style={styles.textStyle}>{data.price} $</Text>
+        <Text style={styles.textStyle}>{data.price * fullValue } $</Text> 
       </View>
       <View style={[styles.bottomRow, {marginTop: 1}]}>
         <Text style={styles.textStyle}>feedback</Text>
@@ -154,6 +156,6 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: 'bold', 
   },
 });
