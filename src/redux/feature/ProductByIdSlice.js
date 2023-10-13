@@ -7,7 +7,9 @@ export const getAllProductsbyId = createAsyncThunk(
     const {id} = arg;
    try {
       const {data} = await axios.get(`https://dummyjson.com/products/${id}`);
-      return data.products;
+    //   console.log("filterd_data", data)
+      return data;
+      
     } catch (err) {
       rejectWithValue(err);
       console.log('error get Products by id>>', err);
