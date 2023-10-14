@@ -7,9 +7,11 @@ import NormalHeader from '../../components/normalHeader';
 import {getAllUsersbyId} from '../../redux/feature/GetAllUserById';
 import Avatar from '../../components/avatar';
 import ProfileContent from '../../components/profileContent';
+import LoginButton from '../../components/LoginButton';
 import COLORS from '../../consts/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   const isFocused = useIsFocused();
   const dispatch = useDispatch();
   const {data, isSuccess, loading, message} = useSelector(state => state.login);
@@ -42,10 +44,16 @@ const Profile = () => {
           gender={newData.gender}
           Contact={newData.phone}
           Studies={newData.university}
-          from={newData.address.city}
-          work={newData.company.name}
-          work_as={newData.company.title}
+          from={newData?.address?.city}
+          work={newData?.company?.name}
+          work_as={newData?.company?.title}
           />
+        </View>
+        <View style={styles.buttonWrapper}>
+          <LoginButton ButtonText={"Logout"} onpress={()=>{
+              AsyncStorage.clear();
+              navigation.navigate("Login");
+          }}/>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -64,4 +72,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
   },
+  buttonWrapper : {
+    justifyContent : "center",
+    alignItems : "center",
+    marginTop : 30
+  }
 });

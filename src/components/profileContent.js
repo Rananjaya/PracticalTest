@@ -38,7 +38,7 @@ const ProfileContent = ({birthday, gender, Contact, Studies,from,work,work_as}) 
       </View>
       <View style={[styles.secondWrapper,{marginTop :10}]}>
         <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
+          <Icon name="phone" size={30} />
         </View>
         <View style={{flex: 0.5}}>
           <Text style={styles.middelText}>Contact</Text>
@@ -51,10 +51,10 @@ const ProfileContent = ({birthday, gender, Contact, Studies,from,work,work_as}) 
       </View>
       <View style={[styles.secondWrapper,{marginTop :10}]}>
         <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
+          <Icon name="school" size={30} />
         </View>
         <View style={{flex: 0.5}}>
-          <Text style={styles.middelText}>Studies At</Text>
+          <Text style={styles.middelText}>Studies at</Text>
         </View>
         <View style={{flex: 0.5}}>
           <Text style={[styles.middelText, {color: COLORS.LogoTextColor}]}>
@@ -64,7 +64,7 @@ const ProfileContent = ({birthday, gender, Contact, Studies,from,work,work_as}) 
       </View>
       <View style={[styles.secondWrapper,{marginTop :10}]}>
         <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
+          <Icon name="map-marker-minus" size={30} />
         </View>
         <View style={{flex: 0.5}}>
           <Text style={styles.middelText}>From</Text>
@@ -77,23 +77,10 @@ const ProfileContent = ({birthday, gender, Contact, Studies,from,work,work_as}) 
       </View>
       <View style={[styles.secondWrapper,{marginTop :10}]}>
         <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
+          <Icon name="office-building" size={30} />
         </View>
         <View style={{flex: 0.5}}>
-          <Text style={styles.middelText}>Wrok At</Text>
-        </View>
-        <View style={{flex: 0.5}}>
-          <Text style={[styles.middelText, {color: COLORS.LogoTextColor}]}>
-            {work}
-          </Text>
-        </View>
-      </View>
-      <View style={[styles.secondWrapper,{marginTop :10}]}>
-        <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
-        </View>
-        <View style={{flex: 0.5}}>
-          <Text style={styles.middelText}>Wrok At</Text>
+          <Text style={styles.middelText}>Wrok at</Text>
         </View>
         <View style={{flex: 0.5}}>
           <Text style={[styles.middelText, {color: COLORS.LogoTextColor}]}>
@@ -101,9 +88,10 @@ const ProfileContent = ({birthday, gender, Contact, Studies,from,work,work_as}) 
           </Text>
         </View>
       </View>
+  
       <View style={[styles.secondWrapper,{marginTop :10}]}>
         <View style={{flex: 0.5}}>
-          <Icon name="home" size={30} />
+          <Icon name="briefcase" size={30} />
         </View>
         <View style={{flex: 0.5}}>
           <Text style={styles.middelText}>Wrok as a</Text>
