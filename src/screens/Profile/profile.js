@@ -17,7 +17,7 @@ const Profile = ({navigation}) => {
   const {data, isSuccess, loading, message} = useSelector(state => state.login);
   const {data: newData} = useSelector(state => state.getuserbyid);
 
-  console.log('allllllllllllll', newData);
+ 
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {

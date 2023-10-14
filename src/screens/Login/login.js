@@ -7,6 +7,7 @@ import LoginButton from '../../components/LoginButton';
 import PasswordTextInput from '../../components/passwordTextInput';
 import {useDispatch, useSelector} from 'react-redux';
 import {signupUser} from '../../redux/feature/LoginSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
   const dispatch = useDispatch();
@@ -14,16 +15,27 @@ const Login = ({navigation}) => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log('stateee', 'data',data,'success',isSuccess,'loading',loading,'message',message);
+
 
   useEffect(() => {
     if(data !== undefined){
      
       navigation.navigate('Tabs');
+      tokenSet();
     } 
   }, [data]);
 
-  const LoginUser = useCallback(() => {
+  const tokenSet = useCallback(async() => {
+    try{
+      
+      await AsyncStorage.setItem('UserToken', 'login'); 
+    }catch(error){
+          console.log("error_set_user_token",error);
+    }
+  }, []);
+
+
+  const LoginUser = useCallback(async() => {
     if (
       userName !== null &&
       userName !== '' &&
@@ -32,6 +44,8 @@ const Login = ({navigation}) => {
     ) {
       //dispach data
       dispatch(signupUser({username: userName, password: password}));
+
+     
       // navigation.navigate('Tabs');
     }
   }, [userName, password]);
@@ -43,7 +57,7 @@ const Login = ({navigation}) => {
       <View style={styles.inputBoxMainStyle}>
         <LoginInput
           secureText={false}
-          placeHolderText={'UserName'}
+          placeHolderText={'Username'}
           userName={value => {
             setUserName(value);
           }}

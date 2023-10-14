@@ -12,6 +12,7 @@ import ProductDetils from './src/screens/ProdcutsDetils/productsDetils';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
+import FirstScreen from './src/screens/InitialScreen/initialScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,9 +48,10 @@ const App = () => {
   return (
     <Provider store={store}>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Tabs" component={CreateBottomTab} />
+      <Stack.Navigator initialRouteName="" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="FirstScreen" component={FirstScreen} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Tabs" component={CreateBottomTab} />
         <Stack.Screen name="ProductsDetils" component={ProductDetils} />
         <Stack.Screen name="Checkout" component={Checkout} />
       </Stack.Navigator>

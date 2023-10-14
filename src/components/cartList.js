@@ -7,7 +7,7 @@ const cartList = ({title, quntity, price, imageURL,onpressDelete}) => {
     <TouchableOpacity>
       <View style={styles.listWrapper}>
         <View style={styles.MainRow}>
-          <View style={{flexDirection: 'row', }}>
+          <View style={{flexDirection: 'row', flex : 1.8 }}>
             <View>
               <Image
                 style={styles.tumb}
@@ -33,9 +33,13 @@ const cartList = ({title, quntity, price, imageURL,onpressDelete}) => {
               </View>
             </View>
           </View>
-          <View style={{flexDirection : "row", marginLeft :80, justifyContent : "center", alignItems : "center"}}>
-            <Text>$</Text>
-            <Text style={{fontWeight :"bold"}}>{price}</Text>
+          <View style={{flexDirection : "row", marginLeft :80,  flex : 0.5 }}>
+         
+
+            <View style={{}}>
+            <Text style={{fontWeight :"bold"}}>$ {price}</Text>
+            </View>
+            
           </View>
         </View>
       </View>
@@ -54,13 +58,13 @@ const styles = StyleSheet.create({
     elevation: 10,
     marginVertical: 10,
     marginHorizontal: 10,
-    padding: 10,
+    padding: 3,
   },
   MainRow: {
     flexDirection: 'row',
     // flex : 0.5
-    //  justifyContent : "center" ,
-    //alignItems :"center"
+     justifyContent : "center" ,
+    alignItems :"center"
   },
   tumb: {
     height: 80,

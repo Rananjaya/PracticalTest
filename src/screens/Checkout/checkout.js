@@ -5,7 +5,7 @@ import HeaderWithDirections from '../../components/headerWithDirections';
 import LoginButton from '../../components/LoginButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const checkout = ({navigation, route}) => {
+const Checkout = ({navigation, route}) => {
   const {cart} = route.params;
   console.log('cxzcxczxczc', cart);
 
@@ -74,7 +74,7 @@ const checkout = ({navigation, route}) => {
           flexDirection: 'column',
         }}>
         <LoginButton
-          ButtonText={'Paynow'}
+          ButtonText={'Pay Now'}
           onpress={async () => {
             try {
               await AsyncStorage.clear();
@@ -89,7 +89,7 @@ const checkout = ({navigation, route}) => {
   );
 };
 
-export default checkout;
+export default Checkout;
 
 const styles = StyleSheet.create({
   MainWrapper: {
