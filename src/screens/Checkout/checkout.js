@@ -9,11 +9,7 @@ const checkout = ({navigation, route}) => {
   const {cart} = route.params;
   console.log('cxzcxczxczc', cart);
 
-  //   useEffect(()=>{
-  //     const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-  // console.log("Total Price: ", total);
-  //   },[])
+ 
 
   const getTotalPrice = () => {
     let totalPrice = 0;
