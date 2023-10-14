@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
   cardWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 70,
+   
   },
 });
